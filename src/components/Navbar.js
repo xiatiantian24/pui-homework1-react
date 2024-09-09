@@ -1,19 +1,15 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 export default function Navbar(){
-  const navigate = useNavigate();
     return(
         <nav>
-        <a class="logo-link" href="index.js"
+        <a class="logo-link" href="/"
           ><img src="./assets/logo/logo-01.svg" alt="logo" class="logo-img"
         /></a>
         <div class="links">
-          <a href="index.js" class="current">Products</a>
-          <a href="shoppingcart.js">Cart</a>
-          <button onClick={() => navigate("/cart")}>
-                Cart
-            </button>
+          <Link to="/" class="current">Products</Link>
+          <Link to="/cart">Cart</Link>
         </div>
       </nav>
     )

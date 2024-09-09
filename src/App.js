@@ -1,30 +1,18 @@
-import Navbar from "./components/Navbar";
-import ProductCard from "./components/ProductCard";
-import data from "./components/data";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Cart from "./pages/Cart";
-import Detail from "./pages/Detail";
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import Cart from "./pages/cart";
+import Detail from "./pages/detail";
+import Home from "./pages/home";
 
 function App() {
-  const cards = data.map((item) => {
-    return <ProductCard 
-    key={item.id} 
-    item={item} />;
-  });
 
   return (
     <div>
       <BrowserRouter>
-      <Navbar />
-      <div class="product-gallery">
-        <div class="cinnamon-rolls">
-          <h2>Our hand-made cinnamon rolls</h2>
-          {cards}
-        </div>
-      </div>
         <Routes>
-          <Route exact path="/cart" element={<Cart />} />
-          <Route exact path="/detail" element={<Detail />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/detail" element={<Detail />} />
+          {/* <Route path="/detail/:id" element={<Detail />} /> */}
         </Routes>
       </BrowserRouter>
     </div>
